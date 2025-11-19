@@ -1,0 +1,41 @@
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 10
+    groups:
+      security-npm-all:
+        applies-to: security-updates
+        patterns:
+          - "*"
+
+      npm-all:
+        applies-to: version-updates
+        patterns:
+          - "*"
+
+    labels:
+      - "dependencies"
+      - "security"
+
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 5
+    groups:
+      security-gha-all:
+        applies-to: security-updates
+        patterns:
+          - "*"
+
+      version-gha-all:
+        applies-to: version-updates
+        patterns:
+          - "*"
+
+    labels:
+      - "dependencies"
+      - "security"
